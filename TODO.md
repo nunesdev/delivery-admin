@@ -5,7 +5,7 @@ Vou utilizar como padrão de código o [Standard](http://standardjs.com/), logo 
 - não utilização do `;`
 - definição de variáveis sendo 1 por linha
 
-Por exemplo como está:
+Por exemplo, como está:
 
 ```js
 'use strict';
