@@ -1,7 +1,7 @@
 'use strict';
 
 let bluebird = require('bluebird');
-let debug = require('debug')('delivery-admin:controller:product');
+let debug = require('debug')('delivery-admin:controller:referencePoint');
 let repository = require('../repository/ReferencePointRepository');
 const PER_PAGE = 10;
 
@@ -51,7 +51,7 @@ let ReferencePointController = {
     repository.findOne({ _id: _id })
     .then(function(result) {
       if (!result) {
-        let err = new Error('product not found');
+        let err = new Error('referencePoint not found');
         err.status = 404;
         throw err;
       }
@@ -63,8 +63,8 @@ let ReferencePointController = {
     .catch(next);
   },
   create: function(request, response, next) {
-    let product = new repository(request.body);
-    product.save()
+    let referencePoint = new repository(request.body);
+    referencePoint.save()
       .then(function(result) {
         response.status(201).json(result);
       })
