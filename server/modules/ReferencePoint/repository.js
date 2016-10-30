@@ -1,3 +1,8 @@
 const config = require('./config')
+const mongoose = require('mongoose')
+const schema = require(config.SCHEMA)
+const name = config.NAME
 
-module.exports = require('mongoose').model(config.NAME, require(config.SCHEMA))
+const Repository  = mongoose.model(name, schema)
+
+module.exports = Repository
