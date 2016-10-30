@@ -1,8 +1,8 @@
 const config = require('./config')
 
-const bluebird = require('bluebird');
-const debug = require('debug')('delivery-admin:controller:customer');
-const repository = require(config.REPOSITORY);
+let bluebird = require('bluebird');
+let debug = require('debug')('delivery-admin:controller:referencePoint');
+let repository = require('../repository/ReferencePointRepository');
 const PER_PAGE = 10;
 
 const CustomerController = {
@@ -49,7 +49,7 @@ const CustomerController = {
     repository.findOne({ _id: _id })
     .then(function(result) {
       if (!result) {
-        let err = new Error('customer not found');
+        let err = new Error('referencePoint not found');
         err.status = 404;
         throw err;
       }
@@ -61,8 +61,8 @@ const CustomerController = {
     .catch(next);
   },
   create: function(request, response, next) {
-    let customer = new repository(request.body);
-    customer.save()
+    let referencePoint = new repository(request.body);
+    referencePoint.save()
       .then(function(result) {
         response.status(201).json(result);
       })
