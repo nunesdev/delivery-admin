@@ -1,4 +1,3 @@
-const mongoose = require('../../config/MongooseConfig.js')
 const SCHEMA = './schema'
 const CONTROLLER = './controller'
 const ROUTES = './routes'
