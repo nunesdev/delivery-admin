@@ -24,7 +24,7 @@ let CustomerController = {
     debug('query', query);
 
     bluebird.all([
-      repository.find(query).limit(PER_PAGE).skip(PER_PAGE * (page - 1)),
+      repository.find(query).limit(PER_PAGE).skip(PER_PAGE * (page - 1)).sort({ _id: - 1 }),
       repository.count(query)
     ])
     .then(function(results) {
